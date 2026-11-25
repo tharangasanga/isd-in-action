@@ -1,5 +1,6 @@
 package tacos;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,6 +35,18 @@ public class Taco {
   
   public void addIngredient(Ingredient ingredient) {
     this.ingredients.add(ingredient);
+  }
+
+  public BigDecimal getPrice() {
+    BigDecimal total = BigDecimal.ZERO;
+    if (ingredients != null) {
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient.getPrice() != null) {
+                total = total.add(ingredient.getPrice());
+            }
+        }
+    }
+    return total;
   }
 
 }
