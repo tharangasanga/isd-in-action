@@ -93,9 +93,10 @@ public class DesignAndOrderTacosBrowserTest {
 
     WebElement wrapGroup = browser.findElement(By.cssSelector("div.ingredient-group#wraps"));
     List<WebElement> wraps = wrapGroup.findElements(By.tagName("div"));
-    assertThat(wraps.size()).isEqualTo(2);
+    assertThat(wraps.size()).isEqualTo(3);
     assertIngredient(wrapGroup, 0, "FLTO", "Flour Tortilla");
     assertIngredient(wrapGroup, 1, "COTO", "Corn Tortilla");
+    assertIngredient(wrapGroup, 2, "WWTO", "Whole Wheat Tortilla");
 
     WebElement proteinGroup = browser.findElement(By.cssSelector("div.ingredient-group#proteins"));
     List<WebElement> proteins = proteinGroup.findElements(By.tagName("div"));
@@ -120,6 +121,13 @@ public class DesignAndOrderTacosBrowserTest {
     assertThat(sauces.size()).isEqualTo(2);
     assertIngredient(sauceGroup, 0, "SLSA", "Salsa");
     assertIngredient(sauceGroup, 1, "SRCR", "Sour Cream");
+
+    WebElement drinkGroup = browser.findElement(By.cssSelector("div.ingredient-group#drinks"));
+    List<WebElement> drinks = drinkGroup.findElements(By.tagName("div"));
+    assertThat(drinks.size()).isEqualTo(2);
+    assertIngredient(drinkGroup, 0, "BLCN", "Cola");
+    assertIngredient(drinkGroup, 1, "WATR", "Mineral Water");
+
   }
 
 
